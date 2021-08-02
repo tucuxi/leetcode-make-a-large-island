@@ -1,6 +1,7 @@
 class Solution {
     fun largestIsland(grid: Array<IntArray>): Int {
         val n = grid.size
+        val firstLabel = 2
         val sizes = mutableMapOf<Int, Int>()
         val steps = arrayOf(Pair(-1, 0), Pair(1, 0), Pair(0, -1), Pair(0, 1))
 
@@ -27,8 +28,7 @@ class Solution {
             return size
         }
 
-        fun discoverIslands(firstLabel: Int) {
-            require(firstLabel > 1)
+        fun discoverIslands() {
             var k = firstLabel
             for (row in 0 until n) {
                 for (col in 0 until n) {
@@ -42,7 +42,7 @@ class Solution {
         }
 
         fun largestCombinedIsland(): Int {
-            var maxSize = 0
+            var maxSize = sizes.getOrDefault(firstLabel, 0)
             for (row in 0 until n) {
                 for (col in 0 until n) {
                     if (grid[row][col] == 0) {
@@ -55,8 +55,7 @@ class Solution {
             return maxSize
         }
 
-        discoverIslands(2)
-        val largestSingleIsland = sizes.values.fold(0) { acc, value -> maxOf(acc, value) }
-        return maxOf(largestCombinedIsland(), (largestSingleIsland + 1).coerceAtMost(n * n))
+        discoverIslands()
+        return largestCombinedIsland()
     }
 }
