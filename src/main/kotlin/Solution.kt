@@ -10,16 +10,16 @@ class Solution {
 
         fun conquerIsland(label: Int, row: Int, col: Int): Int {
             val queue = mutableListOf<Pair<Int, Int>>()
-            var size = 1
+            var size = 0
             grid[row][col] = label
             queue.add(Pair(row, col))
             while (queue.isNotEmpty()) {
                 val (r, c) = queue.removeAt(0)
+                size++
                 for (step in steps) {
                     val nextR = r + step.first
                     val nextC = c + step.second
                     if (label(nextR, nextC) == 1) {
-                        size++
                         grid[nextR][nextC] = label
                         queue.add(Pair(nextR, nextC))
                     }
