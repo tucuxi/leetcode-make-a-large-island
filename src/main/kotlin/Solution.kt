@@ -6,7 +6,7 @@ class Solution {
         val steps = arrayOf(Pair(-1, 0), Pair(1, 0), Pair(0, -1), Pair(0, 1))
 
         fun label(row: Int, col: Int): Int =
-            if (row < 0 || row >= n || col < 0 || col >= n) 0 else grid[row][col]
+            if (row !in 0 until n || col !in 0 until n) 0 else grid[row][col]
 
         fun conquerIsland(label: Int, row: Int, col: Int): Int {
             val queue = mutableListOf<Pair<Int, Int>>()
