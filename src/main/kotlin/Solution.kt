@@ -47,7 +47,7 @@ class Solution {
                 for (col in 0 until n) {
                     if (grid[row][col] == 0) {
                         val neighbors = steps.map { (dr, dc) -> label(row + dr, col + dc) }.toSet()
-                        val combinedSize = neighbors.map { label -> sizes.getOrDefault(label, 0) }.sum()
+                        val combinedSize = neighbors.sumOf { label -> sizes.getOrDefault(label, 0) }
                         maxSize = maxOf(combinedSize + 1, maxSize)
                     }
                 }
