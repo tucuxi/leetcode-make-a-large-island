@@ -1,32 +1,33 @@
 import org.junit.Assert.assertEquals
+import org.junit.Test
 
 class SolutionTest {
 
-    @org.junit.Test
+    @Test
     fun example1() {
         val grid = arrayOf(intArrayOf(1, 0), intArrayOf(0, 1))
         assertEquals(3, Solution().largestIsland(grid))
     }
 
-    @org.junit.Test
+    @Test
     fun example2() {
         val grid = arrayOf(intArrayOf(1, 1), intArrayOf(1, 0))
         assertEquals(4, Solution().largestIsland(grid))
     }
 
-    @org.junit.Test
+    @Test
     fun example3() {
         val grid = arrayOf(intArrayOf(1, 1), intArrayOf(1, 1))
         assertEquals(4, Solution().largestIsland(grid))
     }
 
-    @org.junit.Test
+    @Test
     fun example4() {
         val grid = arrayOf(intArrayOf(0, 1), intArrayOf(1, 1))
         assertEquals(4, Solution().largestIsland(grid))
     }
 
-    @org.junit.Test
+    @Test
     fun example5() {
         val grid = arrayOf(
             intArrayOf(

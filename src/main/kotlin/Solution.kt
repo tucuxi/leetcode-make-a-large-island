@@ -3,7 +3,6 @@ class Solution {
         val n = grid.size
         val firstLabel = 2
         val sizes = mutableMapOf<Int, Int>()
-        val steps = arrayOf(Pair(-1, 0), Pair(1, 0), Pair(0, -1), Pair(0, 1))
 
         fun label(row: Int, col: Int): Int =
             if (row !in 0 until n || col !in 0 until n) 0 else grid[row][col]
@@ -57,5 +56,9 @@ class Solution {
 
         discoverIslands()
         return largestCombinedIsland()
+    }
+
+    companion object {
+        val steps = arrayOf(Pair(-1, 0), Pair(1, 0), Pair(0, -1), Pair(0, 1))
     }
 }
