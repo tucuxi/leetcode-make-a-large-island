@@ -1,6 +1,5 @@
 plugins {
     kotlin("jvm") version "1.9.22"
-    id("io.gitlab.arturbosch.detekt").version("1.23.3")
 }
 
 group = "me.kds"
@@ -10,10 +9,10 @@ repositories {
     mavenCentral()
 }
 
-dependencies {
-    testImplementation(kotlin("test"))
-}
-
-tasks.test {
-    useJUnit()
+testing {
+    suites {
+        val test by getting(JvmTestSuite::class) {
+            useJUnit()
+        }
+    }
 }
