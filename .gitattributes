@@ -1,1 +1,4 @@
-gradlew.bat eol=crlf
+* text=auto
+
+gradlew     text eol=lf
+graflew.bat text eol=crlf
